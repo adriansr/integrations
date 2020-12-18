@@ -1,0 +1,16 @@
+- name: tcp test
+  input: tcp
+  service: bluecoat-director-tcp
+  vars: ~
+  data_stream:
+    vars:
+      tcp_host: 0.0.0.0
+      tcp_port: 9514
+- name: udp test
+  input: udp
+  service: bluecoat-director-udp
+  vars: ~
+  data_stream:
+    vars:
+      udp_host: 0.0.0.0
+      udp_port: 9514

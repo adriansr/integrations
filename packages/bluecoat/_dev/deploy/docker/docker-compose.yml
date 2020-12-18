@@ -1,0 +1,14 @@
+version: '2.3'
+services:
+  bluecoat-director-tcp:
+    tty: true
+    build: .
+    volumes:
+      - ./logs:/logs/:ro
+    command: /stream -proto tcp -dest elastic-agent:9514 /logs/generated.log
+  bluecoat-director-udp:
+    tty: true
+    build: .
+    volumes:
+      - ./logs:/logs/:ro
+    command: /stream -proto udp -delay 100ms -dest elastic-agent:9514 /logs/generated.log 
